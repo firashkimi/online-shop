@@ -28,3 +28,19 @@ exports.getAllProducts = () => {
     })
 
 }
+exports.getAllProductsByCategory = (category) => {
+    // connect to db 
+    //get products
+    // disconnect 
+
+    return new Promise((resolve, rejected) => {
+
+        mongoose.connect(DB_URI).then(() => {
+            return Product.find({category:category})
+        }).then(products => {
+            mongoose.disconnect()
+            resolve(products)
+        }).catch(err => { rejected(err) })
+    })
+
+}
