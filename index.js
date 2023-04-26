@@ -12,6 +12,7 @@ app.set('view engine','ejs')
 app.set('views','views') //default
 
 app.use(('/',require('./routes/home.routes')))
+app.use(('/',require('./routes/product.routes')))
 
 
 app.listen(3000,()=>{

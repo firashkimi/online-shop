@@ -42,5 +42,19 @@ exports.getAllProductsByCategory = (category) => {
             resolve(products)
         }).catch(err => { rejected(err) })
     })
+}
+exports.getAllProductsById = (id) => {
+    // connect to db 
+    //get products
+    // disconnect 
 
+    return new Promise((resolve, rejected) => {
+
+        mongoose.connect(DB_URI).then(() => {
+            return Product.findById(id)
+        }).then(products => {
+            mongoose.disconnect()
+            resolve(products)
+        }).catch(err => { rejected(err) })
+    })
 }
